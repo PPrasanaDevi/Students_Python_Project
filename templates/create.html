@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% include 'header.html' %}
+
+{% block title %}Create Student{% endblock %}
+
+{% block content %}
+<div class="container">
+    <form method="POST" action="#">
+        <table class="form-group">
+            <tr>
+                <td><label for="first_name">First Name:</label></td>
+                <td><input class="form-control" type="text" name="first_name" id="first_name" required></td>
+            </tr>
+            <tr>
+                <td><label for="last_name">Last Name:</label></td>
+                <td><input class="form-control" type="text" name="last_name" id="last_name" required></td>
+            </tr>
+            <tr>
+                <td><label for="email">Email:</label></td>
+                <td><input class="form-control" type="email" name="email" id="email" required></td>
+            </tr>
+            <tr>
+                <td><label for="password">Password:</label></td>
+                <td><input class="form-control" type="password" name="password" id="password" required></td>
+            </tr>
+            <tr>
+                <td><label for="gender">Gender</label></td>
+                <td>
+                    Male:<input type="radio" name="gender" value="male" />
+                    Female:<input type="radio" name="gender" value="female" />
+                </td>
+            </tr>
+            <tr>
+                <td><label for=hobbies>Hobbies</label></td>
+                <td>
+                    Criket:<input type="checkbox" name="hobbies" value="cricket" />
+                    Movies:<input type="checkbox" name="hobbies" value="movies" />
+                    TV:<input type="checkbox" name="hobbies" value="tv" />
+                </td>
+            </tr>
+            <tr>
+                <td><label for="country">Country</label></td>
+                <td>
+                    <select class="form-control" name="country" id="country">
+                        <option value="India">India</option>
+                        <option value="USA">USA</option>
+                        <option value="UK">UK</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+        <input class="btn btn-primary" type="submit" value="Submit">
+    </form>
+</div>
+{% endblock %}

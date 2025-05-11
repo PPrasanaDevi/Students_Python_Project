@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% include 'header.html' %}
+
+{% block title %}Create Student{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="md-lmd-12"> Student List </div>
+    <div>
+        <table class="table table-bordered table-striped">
+            <thead style="background-color: brown;color: white;">
+                <tr>
+                    <th colspan="9" class="text-center">Student List</th>
+                <tr>
+                    <th>Sr No</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Password</th>
+                    <th>Gender</th>
+                    <th>Hobbies</th>
+                    <th>Country</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for student in students %}
+                    <tr>
+                        <td>{{ loop.index }}</td>
+                        <td>{{ student.first_name }}</td>
+                        <td>{{ student.last_name }}</td>
+                        <td>{{ student.email }}</td>
+                        <td>{{ student.password }}</td>
+                        <td>{{ student.gender }}</td>
+                        <td>{{ student.hobbies }}</td>
+                        <td>{{ student.country }}</td>
+                        <td>
+                            <span style="font-size: 20px; color: green;">
+                                <a href="/edit/{{(student.id)}}"><i class="fas fa-edit"></i></a></span>
+                                <span style="font-size: 20px; color: red;"></span>                           
+                            <a href="/delete/{{(student.id)}}"><i class="fas fa-trash-alt"></i></a></span>
+                        </td>
+                    </tr>
+                {% endfor %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% include 'header.html' %}
+
+{% block title %}Create Student{% endblock %}
+
+{% block content %}
+<div class="container">
+    <form method="POST" action="#">
+        <table class="form-group">
+            <tr>
+                <td><label for="first_name">First Name:</label></td>
+                <td><input class="form-control" type="text" name="first_name" id="first_name" value={{student.first_name}} required></td>
+            </tr>
+            <tr>
+                <td><label for="last_name">Last Name:</label></td>
+                <td><input class="form-control" type="text" name="last_name" id="last_name" value={{student.last_name}} required></td>
+            </tr>
+            <tr>
+                <td><label for="email">Email:</label></td>
+                <td><input class="form-control" type="email" name="email" id="email" value={{student.email}} required></td>
+            </tr>
+            <tr>
+                <td><label for="password">Password:</label></td>
+                <td><input class="form-control" type="password" name="password" id="password" value={{student.password}} required></td>
+            </tr>
+            <tr>
+                <td><label for="gender">Gender</label></td>
+                <td>
+                    Male:<input type="radio" name="gender" value="male" {% if student.gender=='male' %}
+                    checked
+                    {% endif %}/>
+                    Female:<input type="radio" name="gender" value="female"  {% if student.gender=='female' %}
+                    checked
+                    {% endif %}/>
+                </td>
+            </tr>
+            <tr>
+                <td><label for=hobbies>Hobbies</label></td>
+                <td>
+                    Criket:<input type="checkbox" name="hobbies" value="cricket"  {% if 'cricket' in student.hobbies %}
+                    checked
+                    {% endif %}/> />
+                    Movies:<input type="checkbox" name="hobbies" value="movies"  {% if 'movies' in student.hobbies %}
+                    checked
+                    {% endif %}/> />
+                    TV:<input type="checkbox" name="hobbies" value="tv"  {% if 'tv' in student.hobbies %}
+                    checked
+                    {% endif %}/> />
+                </td>
+            </tr>
+            <tr>
+                <td><label for="country">Country</label></td>
+                <td>
+                    <select class="form-control" name="country" id="country" >
+                        <option value="India" {% if 'India' in student.country %}
+                           selected 
+                           {% endif %}>India</option>
+                        <option {% if 'USA' in student.country %}
+                        selected 
+                        {% endif %} value="USA">USA</option>
+                        <option {% if 'UK' in student.country %}
+                        selected 
+                        {% endif %} value="UK">UK</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+        <input class="btn btn-primary" type="submit" value="Submit">
+    </form>
+</div>
+{% endblock %}
